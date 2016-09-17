@@ -1,6 +1,24 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+  $(document).ready(
+        function getLocat() {
+          $.getJSON("https://freegeoip.net/json/", function(data) {
+            lat = data['latitude'];
+            long = data['longitude'];
+            document.getElementById("lat").innerHTML = lat;
+            document.getElementById("long").innerHTML = long;
+
+          });
+          });
+  </script>
+
+  </head>
 <body>
   <h1>meteorite landing near you</h1>
+  <h1 id="lat"></h1>
+  <h1 id="long"></h1>
 </body>
 </html>
