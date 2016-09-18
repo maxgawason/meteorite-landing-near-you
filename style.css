@@ -3,6 +3,8 @@ html, body {
   margin: 0;
   padding: 0;
   background: url(milkyway.jpg);
+  background-size: 1400px;
+  background-position: center bottom;
   color: white;
   font-family: 'Space Mono', monospace;
   font-size: 70%;
@@ -56,11 +58,11 @@ html, body {
 }
 
 /* Portrait and Landscape */
-@media only screen 
-  and (min-device-width: 375px) 
-  and (max-device-width: 667px) 
-  and (-webkit-min-device-pixel-ratio: 2) { 
-    
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+
     body{
       font-size: 20%;
     }
