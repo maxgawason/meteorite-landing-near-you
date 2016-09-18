@@ -117,7 +117,7 @@ $(document).ready(
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
+      url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
       $.ajax({
           url: url,
           async: false,
@@ -139,7 +139,7 @@ $(document).ready(
       }
     function getLocat2(cityCoord) {
 
-        $.getJSON("http://freegeoip.net/json/", function(data) {
+        $.getJSON("https://freegeoip.net/json/", function(data) {
             var lat = cityCoord[0];
             var long = cityCoord[1];
             var meteorObject;
