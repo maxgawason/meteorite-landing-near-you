@@ -1,30 +1,57 @@
+
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  background: url(milkyway.jpg);
+  color: white;
+  font-family: 'Space Mono', monospace;
+  font-size: 70%;
 }
 #map {
 
-  height: 500px;
+  height: 375px;
   width: 100%;
 }
 
+.inputBox{
+  width: 20%;
+}
+
+.submitButton{
+  background-color: #00e600;
+  border: none;
+  font-family: 'Space Mono', monospace;
+}
+
+.submitButton:hover{
+  opacity: 0.75;
+}
 
 .data{
   width: 100%;
+
 }
 
 .data h1{
   text-align: center;
 }
 
-.data h3, p{
-  text-align: left;
-  padding-left: 25%;
+.container{
+
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.categories{
+  float: left;
+}
+
+.info{
+  float: right;
 }
 
 #badcity{
-  text-align: left;
-  padding-left: 25%;
-  font-size: 60%
+  text-align: center;
+
 }
