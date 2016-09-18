@@ -43,10 +43,10 @@ $(document).ready(
             var year = document.getElementById("year").innerHTML = meteorObject[0]['year'];
             year = year.substring(0,10);
 
-            if(year != undefined)
+            if(year != undefined){
               document.getElementById("year").innerHTML = year;
-            else
-              document.getElementById("year").innerHTML = "Date Not Available Bitch";
+           } else {
+              document.getElementById("year").innerHTML = "Date Not Available Bitch";}
             document.getElementById("mass").innerHTML = meteorObject[0]['mass']
             console.log(typeof parseInt(meteorCoords[0]));
             function initMap2() {
