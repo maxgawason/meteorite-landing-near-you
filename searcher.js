@@ -74,7 +74,7 @@ $(document).ready(
 
             function toggleBounce() {
               if (marker.getAnimation() !== null) {
-                maker.setAnimation(null);
+                marker.setAnimation(null);
               } else {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
               }
