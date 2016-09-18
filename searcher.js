@@ -61,7 +61,7 @@ $(document).ready(
             var marker;
             function initMap2() {
               var myLatLong = {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])};
-
+              var trueLatLong = {lat: lat, lng: long};
               map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLong,
                 zoom: 8,
@@ -88,15 +88,23 @@ $(document).ready(
             }
           ]
               });
-
               marker = new google.maps.Marker({
+                position: trueLatLong,
+                map: map,
+                title: "Click Me and I'll Dance For You",
+                animation: google.maps.Animation.DROP
+
+              });
+marker.addListener('click', toggleBounce);
+
+              marker2 = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
                 title: "Click Me and I'll Dance For You",
                 animation: google.maps.Animation.DROP
 
               });
-              marker.addListener('click', toggleBounce);
+              marker2.addListener('click', toggleBounce2);
             }
 
             function toggleBounce() {
@@ -104,6 +112,13 @@ $(document).ready(
                 marker.setAnimation(null);
               } else {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            }
+            function toggleBounce2() {
+              if (marker2.getAnimation() !== null) {
+                marker2.setAnimation(null);
+              } else {
+                marker2.setAnimation(google.maps.Animation.BOUNCE);
               }
             }
             initMap2();
@@ -117,7 +132,7 @@ $(document).ready(
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
+      url = 'http://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
       $.ajax({
           url: url,
           async: false,
