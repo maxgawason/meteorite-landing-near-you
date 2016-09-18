@@ -45,9 +45,17 @@ $(document).ready(
             if(year != undefined){
               year = year.substring(0,10);
               document.getElementById("year").innerHTML = year;
-           } else {
-              document.getElementById("year").innerHTML = "Date Not Available Bitch";}
-            document.getElementById("mass").innerHTML = meteorObject[0]['mass']
+            } else {
+              document.getElementById("year").innerHTML = "Date Not Available";
+            }
+            var mass = meteorObject[0]['mass'];
+            if(mass != undefined){
+              document.getElementById("mass").innerHTML = meteorObject[0]['mass']  
+            } else {
+                document.getElementById("mass").innerHTML = "Mass Not Available";
+            }
+            
+            
             console.log(typeof parseInt(meteorCoords[0]));
             function initMap2() {
               map = new google.maps.Map(document.getElementById('map'), {
