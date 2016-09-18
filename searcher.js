@@ -43,7 +43,7 @@ $(document).ready(
             var year = meteorObject[0]['year'];
             year = year.substring(0,10);
 
-            if(year != undefined){
+            if(year != "undefined"){
               document.getElementById("year").innerHTML = year;
            } else {
               document.getElementById("year").innerHTML = "Date Not Available Bitch";}
