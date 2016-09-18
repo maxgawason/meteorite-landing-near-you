@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(
 
 
@@ -32,7 +29,6 @@ $(document).ready(
             }
 
             finder(lat, long)
-            console.log(meteorObject);
             var meteorCoords = [];
             meteorCoords.push(meteorObject[0]['reclat']);
             meteorCoords.push(" " + meteorObject[0]['reclong']);
@@ -49,20 +45,42 @@ $(document).ready(
             }
             var mass = meteorObject[0]['mass'];
             if(mass != undefined){
-              document.getElementById("mass").innerHTML = meteorObject[0]['mass']  
+              document.getElementById("mass").innerHTML = meteorObject[0]['mass']
             } else {
                 document.getElementById("mass").innerHTML = "Mass Not Available";
             }
-            
-            
+
+
             console.log(typeof parseInt(meteorCoords[0]));
+
+            var marker;
             function initMap2() {
+              var myLatLong = {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])};
+
               map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])},
+                center: myLatLong,
                 zoom: 8
               });
+
+              marker = new google.maps.Marker({
+                position: myLatLong,
+                map: map,
+                title: 'Hello World!',
+                animation: google.maps.Animation.DROP
+
+              });
+              marker.addListener('click', toggleBounce);
+            }
+
+            function toggleBounce() {
+              if (marker.getAnimation() !== null) {
+                maker.setAnimation(null);
+              } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
             }
             initMap2();
+
 
         });
     })
