@@ -6,9 +6,10 @@
 <meta charset="utf-8">
 
 <link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
 <script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK5GLl7W0HXw17ssafL8jCGEf-gPZ52xM&callback=initMap"
-async defer></script>
+sync defer></script>
 <script src="searcher.js"></script>
 <script>
 </script>
@@ -34,26 +35,31 @@ async defer></script>
 
   <h1> Nearest Meteorite Landing <h1>
 
-  <form id="form" onsubmit="return false;">
-        <input type="text" id="userInput" />
-        <input type="submit" onclick="changeCity()" />
+  <form autocomplete="off" id="form" onsubmit="return false;">
+        <input type="text" placeholder="Enter a Valid City or Town" class="inputBox" id="userInput" />
+        <input type="submit" class="submitButton" onclick="changeCity()" />
   </form>
 
 <p id="badcity">   </p>
 
- <h3> Coordinates </h3>
- <p id="coord">  </p>
+<div class="container">
+    <div class="categories">
+        <h3> Coordinates </h3>
+        <h3> Name of Asteroid </h3>
+        <h3> Year Landed </h3>
+        <h3> Mass (g) </h3>
+        <h3> Rock Type </h3>
+    </div>
 
- <h3> Name of Asteroid </h3>
- <p id="name">  </p>
 
-
- <h3> Year Landed </h3>
- <p id="year">  </p>
-
-
- <h3> Mass (g) </h3>
- <p id="mass">  </p>
+    <div class="info">
+        <h3 id="coord"> </h3>
+        <h3 id="name"> </h3>
+        <h3 id="year"> </h3>
+        <h3 id="mass"> </h3>
+        <h3 id="rockType"></h3>
+    </div>
+</div>
 
 </div>
 
