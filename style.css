@@ -1,0 +1,25 @@
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#map {
+
+  height: 500px;
+  width: 100%;
+}
+
+
+.data{
+  width: 100%;
+}
+
+.data h1{
+  text-align: center;
+}
+
+.data h3, p{
+  text-align: left;
+  padding-left: 25%;
+}
