@@ -139,7 +139,7 @@ $(document).ready(
       }
     function getLocat2(cityCoord) {
 
-        $.getJSON("https://freegeoip.net/json/", function(data) {
+        $.getJSON("http://freegeoip.net/json/", function(data) {
             var lat = cityCoord[0];
             var long = cityCoord[1];
             var meteorObject;
