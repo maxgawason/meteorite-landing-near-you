@@ -43,11 +43,11 @@ html, body {
   padding-right: 20%;
 }
 
-.categories{
+#coordCate, #nameCate, #yearCate, #massCate, #typeCate{
   float: left;
 }
 
-.info{
+#coord, #name, #year, #mass, #rockType{
   float: right;
 }
 
