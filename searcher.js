@@ -117,14 +117,14 @@ $(document).ready(
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
+      url = 'http://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
       $.ajax({
           url: url,
           async: false,
           dataType: 'json',
           success: function(data) {
-            cityCoord.push(data['coord']['lat']);
-            cityCoord.push(data['coord']['lon']);
+            cityCoord.push(data['results'][0]['bounds']['northeast']['lat']);
+            cityCoord.push(data['results'][0]['bounds']['northeast']['lng']);
           }
       });
     }
@@ -134,7 +134,7 @@ $(document).ready(
           return;
         }else {
           document.getElementById('badcity').innerHTML = "";
-          
+
 
       }
     function getLocat2(cityCoord) {
