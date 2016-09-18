@@ -40,7 +40,7 @@ $(document).ready(
 
             document.getElementById("coord").innerHTML = meteorCoords;
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
-            var year = document.getElementById("year").innerHTML = meteorObject[0]['year'];
+            var year = meteorObject[0]['year'];
             year = year.substring(0,10);
 
             if(year != undefined){
