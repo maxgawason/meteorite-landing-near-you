@@ -17,7 +17,7 @@
                         $.ajax({
                             url: url,
                             async: false,
-                            dataType: 'jsonp',
+                            dataType: 'json',
                             success: function(data) {
                                 if (data[0] != emptyArr[0]) {
                                     i = 40000000;
