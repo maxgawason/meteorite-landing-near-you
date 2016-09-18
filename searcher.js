@@ -117,7 +117,7 @@ $(document).ready(
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'http://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
+      url = 'https://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
       $.ajax({
           url: url,
           async: false,
