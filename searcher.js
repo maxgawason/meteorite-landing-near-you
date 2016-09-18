@@ -41,7 +41,6 @@ $(document).ready(
             document.getElementById("coord").innerHTML = meteorCoords;
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
             var year = meteorObject[0]['year'];
-            console.log(year);
             if(year != undefined){
               year = year.substring(0,10);
               document.getElementById("year").innerHTML = year;
