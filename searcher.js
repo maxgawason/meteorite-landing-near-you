@@ -10,7 +10,7 @@
                 var meteorObject;
 
                 function finder(lat, long) {
-                    for (i = 100000; i < 40000000; i = i + 1000) {
+                    for (i = 100000; i < 40000000; i = i + 100000) {
                         var url = "https://data.nasa.gov/resource/y77d-th95.json?$where=within_circle(geolocation,%20" + lat + ",%20" + long + ',%20' + i + ")"
                         var emptyArr = [];
 
