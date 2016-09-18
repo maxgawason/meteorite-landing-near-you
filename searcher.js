@@ -38,7 +38,7 @@ $(document).ready(
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
             var year = meteorObject[0]['year'];
             if(year != undefined){
-              year = year.substring(0,10);
+              year = year.substring(0,4);
               document.getElementById("year").innerHTML = year;
             } else {
               document.getElementById("year").innerHTML = "Date Not Available";
@@ -49,6 +49,12 @@ $(document).ready(
             } else {
                 document.getElementById("mass").innerHTML = "Mass Not Available";
             }
+            var type = meteorObject[0]["recclass"];
+            if(type != undefined){
+              document.getElementById("rockType").innerHTML = type;
+            } else {
+              document.getElementById("rockType").innerHTML = "Rock Type Not Available";
+            }
 
 
 
@@ -58,7 +64,29 @@ $(document).ready(
 
               map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLong,
-                zoom: 8
+                zoom: 8,
+
+                styles: [
+            {
+              featureType: 'all',
+              stylers: [
+                { saturation: -80 }
+              ]
+            },{
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi.business',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
               });
 
               marker = new google.maps.Marker({
@@ -102,8 +130,12 @@ $(document).ready(
     }
       cityToCoordinates(city);
       if(cityCoord[0] === undefined) {
-        document.getElementById('badcity').innerHTML = "Bad City Request, Please Try Again";
-        return;
+          document.getElementById('badcity').innerHTML = "Bad City Request, Please Try Again";
+          return;
+        }else {
+          document.getElementById('badcity').innerHTML = "";
+          
+
       }
     function getLocat2(cityCoord) {
 
@@ -141,16 +173,22 @@ $(document).ready(
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
             var year = meteorObject[0]['year'];
             if(year != undefined){
-              year = year.substring(0,10);
+              year = year.substring(0,4);
               document.getElementById("year").innerHTML = year;
             } else {
               document.getElementById("year").innerHTML = "Date Not Available";
             }
             var mass = meteorObject[0]['mass'];
             if(mass != undefined){
-              document.getElementById("mass").innerHTML = meteorObject[0]['mass']
+              document.getElementById("mass").innerHTML = meteorObject[0]['mass'];
             } else {
                 document.getElementById("mass").innerHTML = "Mass Not Available";
+            }
+            var type = meteorObject[0]["recclass"];
+            if(type != undefined){
+              document.getElementById("rockType").innerHTML = type;
+            } else {
+              document.getElementById("rockType").innerHTML = "Rock Type Not Available";
             }
 
 
@@ -161,7 +199,29 @@ $(document).ready(
 
               map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLong,
-                zoom: 8
+                zoom: 8,
+
+                styles: [
+            {
+              featureType: 'all',
+              stylers: [
+                { saturation: -80 }
+              ]
+            },{
+              featureType: 'road.arterial',
+              elementType: 'geometry',
+              stylers: [
+                { hue: '#00ffee' },
+                { saturation: 50 }
+              ]
+            },{
+              featureType: 'poi.business',
+              elementType: 'labels',
+              stylers: [
+                { visibility: 'off' }
+              ]
+            }
+          ]
               });
 
               marker = new google.maps.Marker({
@@ -182,6 +242,7 @@ $(document).ready(
               }
             }
             initMap2();
+
 
 
         });
