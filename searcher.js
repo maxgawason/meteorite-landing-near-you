@@ -61,7 +61,7 @@ $(document).ready(
             var marker;
             function initMap2() {
               var myLatLong = {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])};
-              var trueLatLong = {lat: lat, lng: long};
+
               map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLong,
                 zoom: 8,
@@ -88,23 +88,15 @@ $(document).ready(
             }
           ]
               });
+
               marker = new google.maps.Marker({
-                position: trueLatLong,
-                map: map,
-                title: "Click Me and I'll Dance For You",
-                animation: google.maps.Animation.DROP
-
-              });
-marker.addListener('click', toggleBounce);
-
-              marker2 = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
                 title: "Click Me and I'll Dance For You",
                 animation: google.maps.Animation.DROP
 
               });
-              marker2.addListener('click', toggleBounce2);
+              marker.addListener('click', toggleBounce);
             }
 
             function toggleBounce() {
@@ -114,13 +106,6 @@ marker.addListener('click', toggleBounce);
                 marker.setAnimation(google.maps.Animation.BOUNCE);
               }
             }
-            function toggleBounce2() {
-              if (marker2.getAnimation() !== null) {
-                marker2.setAnimation(null);
-              } else {
-                marker2.setAnimation(google.maps.Animation.BOUNCE);
-              }
-            }
             initMap2();
 
 
@@ -128,18 +113,18 @@ marker.addListener('click', toggleBounce);
     }
   )
   function changeCity() {
-    var city = document.getElementById("userInput").value;
+    var city = document.getElementById("pac-input").value;
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'http://api.opencagedata.com/geocode/v1/json?q=' + city + '&key=f8157dec35f4eb2994124446975a753e'
+      url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
       $.ajax({
           url: url,
           async: false,
           dataType: 'json',
           success: function(data) {
-            cityCoord.push(data['results'][0]['bounds']['northeast']['lat']);
-            cityCoord.push(data['results'][0]['bounds']['northeast']['lng']);
+            cityCoord.push(data['coord']['lat']);
+            cityCoord.push(data['coord']['lon']);
           }
       });
     }
@@ -208,7 +193,7 @@ marker.addListener('click', toggleBounce);
 
 
 
-            var marker;
+
             function initMap2() {
               var myLatLong = {lat: parseInt(meteorCoords[0]), lng: parseInt(meteorCoords[1])};
 
@@ -238,6 +223,9 @@ marker.addListener('click', toggleBounce);
             }
           ]
               });
+           var placeID = document.getElementById("userInput").value;
+
+
 
               marker = new google.maps.Marker({
                 position: myLatLong,
@@ -265,3 +253,4 @@ marker.addListener('click', toggleBounce);
   getLocat2(cityCoord);
 
 }
+
