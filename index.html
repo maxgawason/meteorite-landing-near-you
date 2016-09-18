@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script>
-  $(document).ready(
-        function getLocat() {
-          $.getJSON("https://freegeoip.net/json/", function(data) {
-            lat = data['latitude'];
-            long = data['longitude'];
-            document.getElementById("lat").innerHTML = lat;
-            document.getElementById("long").innerHTML = long;
+<title> Space App </title>
+<meta name="viewport" content="initial-scale=1.0">
+<meta charset="utf-8">
 
-          });
-          });
-  </script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"> </script>
 
-  </head>
+<script src="searcher.js"></script>
+<script>
+
+
+</script>
+
+</head>
+
+
+
+
 <body>
-  <h1>meteorite landing near you</h1>
-  <h1 id="lat"></h1>
-  <h1 id="long"></h1>
+
+  <div id="map"></div>
+  <script>
+    var map;
+    function initMap() {
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: {lat: -34.397, lng: 150.644},
+        zoom: 8
+      });
+    }
+    </script>
+ <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK5GLl7W0HXw17ssafL8jCGEf-gPZ52xM&callback=initMap"
+ async defer></script>
+
+<div class="data">
+
+  <h1> Nearest Meteorite Landing <h1>
+
+ <h3> Coordinates </h3>
+ <p id="coord">  </p>
+
+ <h3> Name of Asteroid </h3>
+ <p id="name">  </p>
+
+
+ <h3> Year Landed </h3>
+ <p id="year">  </p>
+
+
+ <h3> Mass (kg) </h3>
+ <p id="mass">  </p>
+
+</div>
+
+
 </body>
+
+
 </html>
