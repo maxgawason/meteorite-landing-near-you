@@ -65,7 +65,7 @@ $(document).ready(
               marker = new google.maps.Marker({
                 position: myLatLong,
                 map: map,
-                title: 'Click me and I bounce',
+                title: "Click Me and I'll Dance For You",
                 animation: google.maps.Animation.DROP
 
               });
