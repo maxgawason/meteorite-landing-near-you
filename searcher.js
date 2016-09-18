@@ -117,7 +117,7 @@ $(document).ready(
     city = city.replace(/\s+/g, '');
     var cityCoord = [];
     function cityToCoordinates(city){
-      url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
+      url = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=bea2b6445da179de8301b14deb5b9065';
       $.ajax({
           url: url,
           async: false,
