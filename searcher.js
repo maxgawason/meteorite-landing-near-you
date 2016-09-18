@@ -5,7 +5,7 @@ $(document).ready(
 
 
     function getLocat() {
-      
+
         $.getJSON("https://freegeoip.net/json/", function(data) {
             var lat = data['latitude'];
             var long = data['longitude'];
@@ -42,7 +42,11 @@ $(document).ready(
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
             var year = document.getElementById("year").innerHTML = meteorObject[0]['year'];
             year = year.substring(0,10);
-            document.getElementById("year").innerHTML = year;
+
+            if(year != undefined)
+              document.getElementById("year").innerHTML = year;
+            else
+              document.getElementById("year").innerHTML = "Date Not Available Bitch";
             document.getElementById("mass").innerHTML = meteorObject[0]['mass']
             console.log(typeof parseInt(meteorCoords[0]));
             function initMap2() {
@@ -55,3 +59,4 @@ $(document).ready(
 
         });
     })
+
