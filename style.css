@@ -67,5 +67,8 @@ html, body {
     .container{
       padding: 20px;
     }
+    .inputBox{
+      width: 70%;
+    }
 
 }
