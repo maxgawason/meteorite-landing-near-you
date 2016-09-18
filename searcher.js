@@ -42,7 +42,7 @@ $(document).ready(
             document.getElementById("name").innerHTML = meteorObject[0]['name'];
             var year = meteorObject[0]['year'];
             year = year.substring(0,10);
-
+            console.log(year);
             if(year != "undefined"){
               document.getElementById("year").innerHTML = year;
            } else {
